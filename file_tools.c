@@ -132,6 +132,7 @@ void call_fun(op_func func, char *op, char *val, int ln, int format)
 	stack_t *node;
 	int flag;
 	int i;
+	stack_t *head = NULL;
 
 	flag = 1;
 	if (strcmp(op, "push") == 0)
@@ -154,4 +155,6 @@ void call_fun(op_func func, char *op, char *val, int ln, int format)
 		if (format == 1)
 			add_to_queue(&node, ln);
 	}
+	else
+		func(&head, ln);
 }
